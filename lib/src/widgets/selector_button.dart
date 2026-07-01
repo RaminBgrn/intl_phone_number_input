@@ -135,6 +135,8 @@ class SelectorButton extends StatelessWidget {
             child: CountrySearchListWidget(
               countries,
               locale,
+              countryDialCodeStyle: countryDialCodeTextStyle,
+              countryStyle: countryTextStyle,
               searchBoxDecoration: searchBoxDecoration,
               showFlags: selectorConfig.showFlags,
               useEmoji: selectorConfig.useEmoji,
@@ -183,6 +185,8 @@ class SelectorButton extends StatelessWidget {
                     child: CountrySearchListWidget(
                       countries,
                       locale,
+                      countryDialCodeStyle: countryDialCodeTextStyle,
+                      countryStyle: countryTextStyle,
                       searchBoxDecoration: searchBoxDecoration,
                       scrollController: controller,
                       showFlags: selectorConfig.showFlags,
