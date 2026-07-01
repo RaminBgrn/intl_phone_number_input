@@ -705,6 +705,8 @@ class _InputWidgetView
                   countries: state.countries,
                   onCountryChanged: state.onCountryChanged,
                   selectorConfig: widget.selectorConfig,
+                  countryDialCodeTextStyle: widget.countryDialCodeTextStyle,
+                  countryTextStyle: widget.countryTextStyle,
                   selectorTextStyle: widget.selectorTextStyle,
                   searchBoxDecoration: widget.searchBoxDecoration,
                   locale: state.locale,
