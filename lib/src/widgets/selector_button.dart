@@ -12,6 +12,8 @@ class SelectorButton extends StatelessWidget {
   final Country? country;
   final SelectorConfig selectorConfig;
   final TextStyle? selectorTextStyle;
+  final TextStyle? countryTextStyle;
+  final TextStyle? countryDialCodeTextStyle;
   final InputDecoration? searchBoxDecoration;
   final bool autoFocusSearchField;
   final String? locale;
@@ -27,6 +29,8 @@ class SelectorButton extends StatelessWidget {
     required this.selectorConfig,
     required this.selectorTextStyle,
     required this.searchBoxDecoration,
+    this.countryTextStyle,
+    this.countryDialCodeTextStyle,
     required this.autoFocusSearchField,
     required this.locale,
     required this.onCountryChanged,

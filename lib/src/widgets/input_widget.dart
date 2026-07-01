@@ -353,11 +353,17 @@ class InternationalPhoneNumberInput extends StatefulWidget {
   /// ```
   final String? hintCharacter;
 
+  final TextStyle? countryTextStyle;
+
+  final TextStyle? countryDialCodeTextStyle;
+
   InternationalPhoneNumberInput(
       {Key? key,
       this.selectorConfig = const SelectorConfig(),
       required this.onInputChanged,
       this.onInputValidated,
+      this.countryTextStyle,
+      this.countryDialCodeTextStyle,
       this.onSubmit,
       this.onFieldSubmitted,
       this.validator,
@@ -586,6 +592,8 @@ class _InputWidgetState extends State<InternationalPhoneNumberInput> {
       return value.copyWith(
           prefixIcon: SelectorButton(
         country: country,
+        countryTextStyle: widget.countryTextStyle,
+        countryDialCodeTextStyle: widget.countryDialCodeTextStyle,
         countries: countries,
         onCountryChanged: onCountryChanged,
         selectorConfig: widget.selectorConfig,

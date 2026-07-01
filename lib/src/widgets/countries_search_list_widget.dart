@@ -7,6 +7,8 @@ import 'package:intl_phone_number_input/src/utils/util.dart';
 class CountrySearchListWidget extends StatefulWidget {
   final List<Country> countries;
   final InputDecoration? searchBoxDecoration;
+  final TextStyle? countryStyle;
+  final TextStyle? countryDialCodeStyle;
   final String? locale;
   final ScrollController? scrollController;
   final bool autoFocus;
@@ -16,6 +18,8 @@ class CountrySearchListWidget extends StatefulWidget {
   CountrySearchListWidget(
     this.countries,
     this.locale, {
+    this.countryStyle,
+    this.countryDialCodeStyle,
     this.searchBoxDecoration,
     this.scrollController,
     this.showFlags,
@@ -88,6 +92,8 @@ class _CountrySearchListWidgetState extends State<CountrySearchListWidget> {
               Country country = filteredCountries[index];
 
               return DirectionalCountryListTile(
+                countryStyle: widget.countryStyle,
+                counterDialCodeStyle: widget.countryDialCodeStyle,
                 country: country,
                 locale: widget.locale,
                 showFlags: widget.showFlags!,
@@ -136,6 +142,8 @@ class DirectionalCountryListTile extends StatelessWidget {
   final String? locale;
   final bool showFlags;
   final bool useEmoji;
+  final TextStyle? countryStyle;
+  final TextStyle? counterDialCodeStyle;
 
   const DirectionalCountryListTile({
     Key? key,
@@ -143,6 +151,8 @@ class DirectionalCountryListTile extends StatelessWidget {
     required this.locale,
     required this.showFlags,
     required this.useEmoji,
+    this.countryStyle,
+    this.counterDialCodeStyle,
   }) : super(key: key);
 
   @override
@@ -154,6 +164,7 @@ class DirectionalCountryListTile extends StatelessWidget {
         alignment: AlignmentDirectional.centerStart,
         child: Text(
           '${Utils.getCountryName(country, locale)}',
+          style: countryStyle,
           textDirection: Directionality.of(context),
           textAlign: TextAlign.start,
         ),
@@ -162,6 +173,7 @@ class DirectionalCountryListTile extends StatelessWidget {
         alignment: AlignmentDirectional.centerStart,
         child: Text(
           '${country.dialCode ?? ''}',
+          style: counterDialCodeStyle,
           textDirection: TextDirection.ltr,
           textAlign: TextAlign.start,
         ),
